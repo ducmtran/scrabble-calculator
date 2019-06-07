@@ -14,7 +14,7 @@
 <body class="container bg-light">
     <h1>Scrabble calculator</h1>
     <div class="form-inline">
-        <input id='word' class="form-control" oninput="updateLetter()" maxlength="12" type="text" placeholder="Enter word">
+        <input id='word' class="form-control" oninput="updateLetter()" maxlength="12" type="text" placeholder="Enter word" autocomplete="off">
         <div class="btn btn-primary" id="clear">Clear</div>
     </div>
 
@@ -32,6 +32,17 @@
         <div class="btn btn-primary" id="score">0</div>
         score
     </div>
+
+    <br>
+
+    <p>Instruction: </p>
+    <ul>
+        <li>Type in word to see score update automatically</li>
+        <li>Change letter multiplier by clicking on respective blocks</li>
+        <li>Clear button to clear word and reset word multiplier</li>
+    </ul>
+
+    <a href="https://github.com/ducmtran/scrabble-calculator">View source code on Github</a>
 </body>
 
 </html>

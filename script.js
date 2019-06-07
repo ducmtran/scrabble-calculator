@@ -1,4 +1,4 @@
-var multiplier = [1,1,1,1,1,1,1,1,1,1,1,1]
+var multiplier = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 var wordMultiplier = 1
 var score_sheet = {
   a: 1,
@@ -30,14 +30,15 @@ var score_sheet = {
 }
 window.onload = function () {
   // render all letter element div
+  // 12 letter max because bootstrap can divide by 12 columns (lazy..)
   for (let i = 0; i < 12; i++) {
     let letterScore = document.createElement('div')
     letterScore.className = 'letter col-1'
     letterScore.id = '' + i
-    
+
     let showLetter = document.createElement('div')
     showLetter.className = 'show-letter'
-    
+
     let multi = document.createElement('div')
     multi.className = 'multi text-center'
     multi.addEventListener('click', function (event) {
@@ -54,15 +55,16 @@ window.onload = function () {
   getWordMultiplier().addEventListener('click', function (event) {
     updateWordMultiplier(event)
   })
-  
+
   // add click event listener to clear word
-  document.getElementById('clear').addEventListener('click', function(event) {
+  document.getElementById('clear').addEventListener('click', function (event) {
     getWord().value = ''
     resetMultipliers()
     updateLetter()
   })
 }
 
+// for clear button
 function resetMultipliers() {
   wordMultiplier = 1
   getWordMultiplier().innerHTML = 'x1'
@@ -71,6 +73,7 @@ function resetMultipliers() {
   }
 }
 
+// update letters on changing the text
 function updateLetter() {
   text = getWord().value
   for (let i = 0; i < 12; i++) {
@@ -86,30 +89,7 @@ function updateLetter() {
   updateScore()
 }
 
-function getBlock(n) {
-  return document.getElementById('' + n)
-}
-
-function getShowLetter(n) {
-  return document.getElementById('' + n).firstChild
-}
-
-function getMultiplier(n) {
-  return getShowLetter(n).nextSibling
-}
-
-function getWord() {
-  return document.getElementById('word')
-}
-
-function getWordMultiplier() {
-  return document.getElementById('word-multiplier')
-}
-
-function getScore() {
-  return document.getElementById('score')
-}
-
+// change letter multiplier
 function updateMultiplier(event) {
   let mult = event.target
   let id = parseInt(mult.parentNode.id)
@@ -164,6 +144,7 @@ function updateWordMultiplier(event) {
   updateScore()
 }
 
+// calculate and update score
 function updateScore() {
   let word = getWord().value
   let score = 0
@@ -174,4 +155,31 @@ function updateScore() {
   score = score * wordMultiplier
 
   getScore().innerHTML = score
+}
+
+
+
+// helper functions to get the html elements
+function getBlock(n) {
+  return document.getElementById('' + n)
+}
+
+function getShowLetter(n) {
+  return document.getElementById('' + n).firstChild
+}
+
+function getMultiplier(n) {
+  return getShowLetter(n).nextSibling
+}
+
+function getWord() {
+  return document.getElementById('word')
+}
+
+function getWordMultiplier() {
+  return document.getElementById('word-multiplier')
+}
+
+function getScore() {
+  return document.getElementById('score')
 }
