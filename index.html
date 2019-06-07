@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <title>Scrabble calculator</title>
+</head>
+
+<body class="container bg-light">
+    <h1>Scrabble calculator</h1>
+    <div class="form-inline">
+        <input id='word' class="form-control" oninput="updateLetter()" maxlength="12" type="text" placeholder="Enter word">
+        <div class="btn btn-primary" id="clear">Clear</div>
+    </div>
+
+    <div id="all-letter"></div>
+
+    <div class="word-score row"></div>
+
+    <div class="d-inline">
+        <div id="word-multiplier" class="btn btn-primary">x1</div>
+        word multiplier
+    </div>
+    <br>
+    <br>
+    <div>
+        <div class="btn btn-primary" id="score">0</div>
+        score
+    </div>
+</body>
+
+</html>
